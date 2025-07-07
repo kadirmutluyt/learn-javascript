@@ -15,7 +15,7 @@ let kullanici1 = {
     "adres" : {
         "sehir": "ankara", 
         "ilce":  "polatli",
-        "mahalle": "zafer", 
+        "mahalle": "xxx", 
     },
     "hobiler": ["Futbol", "Basketbol"] 
 };
@@ -27,7 +27,7 @@ let kullanici2 = {
     "adres" : {
         "sehir": "eskiseşir", 
         "ilce":  "odunpazarı",
-        "mahalle": "emek", 
+        "mahalle": "xxxx", 
     },
     "hobiler": ["tenis", "kayak"] 
 };
@@ -49,7 +49,7 @@ let siparis1 = {
     "ödeme şekli": "kredi kartı",
     "kargo adresi": 
         {
-            "mahalle": "zafer",
+            "mahalle": "xxx",
             "ilçe": "polatli",
             "şehir": "ankara"
         },
@@ -76,7 +76,7 @@ let siparis2 = {
     "ödeme şekli": "kredi kartı",
     "kargo adresi": 
         {
-            "mahalle": "zafer",
+            "mahalle": "xxx",
             "ilçe": "polatli",
             "şehir": "ankara"
         },
