@@ -41,5 +41,5 @@ console.log(sonuc);
 
 // and operatörü '&&' işaretiyle gösterilir, tüm durumlardan hepsi doğruysa doğru, değilse yanlışı gösterir.
 // veya operatörü '||' işaretiye gösterilir, tüm durumlardan en az 1'i doğruysa doğru, yoksa yanlışı gösterir.
-// % modülüs operatörü genelde tek mi çift mi diye kontrol etmek için kullanırız.
+// % modülüs operatörü bir sayının diğer sayıya bölümünden kalanı verir.
 
