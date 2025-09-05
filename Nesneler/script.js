@@ -26,7 +26,7 @@ let kullanici2 = {
     "yas" : 20,
     "adres" : {
         "sehir": "eskiseşir", 
-        "ilce":  "odunpazarı",
+        "ilce":  "xxx",
         "mahalle": "xxxx", 
     },
     "hobiler": ["tenis", "kayak"] 

@@ -99,3 +99,5 @@ for (let i = 0; i < ogrenciler.length; i++) {
 }
 
 console.log(toplamnotortalamasi / 3 ) ;
+
+
