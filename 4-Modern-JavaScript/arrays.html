@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        const sayilar = [4, 9 ,23 ,55 ,5 ];
+
+    // ES5 Eski yöntem, değişken oluşturup içerisini tek tek dolaşıyoruz değişken değerini arttırıyoruz    
+        for ( let i = 0; i < sayilar.length; i++  ){
+                console.log(sayilar[i]);
+            }
+
+    // ES6 İle gelen of operatörü ile indeks sayısıyla uğraşmıyoruz, tek tek içeriyi dolaşıyor
+        for (let sayi of sayilar){
+            console.log(sayi);
+        }
+        
+    // Şimdi iki yöntemle bir dizide ki verilerden tek olanları başka diziye push edelim
+    const tekSayilar = [];
+
+    for (let i = 0; i < sayilar.length; i++) {
+        if (sayilar[i]%2 == 1) {
+            tekSayilar.push(sayilar[i]);
+        }
+    }
+
+    for (let sayi of sayilar){
+        if (sayi %2 == 1){
+            tekSayilar.push(sayi);
+        }
+    }
+        
+    console.log(tekSayilar);
+
+    // Filter Metot
+
+    // Arrow fonksiyon ile filter metodunu da kullanarak ekleme yöntemi
+    const tekSayilarKontrol = (sayi) => {return sayi%2 == 1}
+
+    // Filter metodu teksayilarkontrol fonksyiyonunu çalıştırır, Dizi içindeki tüm indekslere girer tek tek kontrol eder, true olanların içerisini döndürür yeni oluşturduğumuza kaydeder, false olanda boş döner. Orijinale değişiklik yapmaz.
+    const tekSayilar2 = sayilar.filter(tekSayilarKontrol); 
+    
+
+    // Yukarıda aslında fonksiyonu ismiyle referans olarak göndermiştik, aşşağıdaki işlem ile aynı işlem yapılır, fonksiyon oluşturmaya gerek kalmaz
+    const tekSayilar3 = sayilar.filter((sayi) => {return sayi%2 == 1});
+
+    console.log(tekSayilar2);
+    console.log(tekSayilar3);
+
+    // Map Metot
+
+    // Map metodu, dizi içerisindeki tüm indekseleri dolaşır, fonksiyon true dönerse diziye true, false dönerse diziye false yazar. her zaman orijinal dizi ile aynı uzunluktadır.
+    const tekSayilar4 = sayilar.map((sayi) => {return sayi%2 ==1});
+        console.log(tekSayilar4);
+
+
+    const urunler = [
+        {urunAdi: "İphone 10", fiyat:10000 },
+        {urunAdi: "samsung s8", fiyat: 12000},
+        {urunAdi: "tecno camon 19pro", fiyat: 3000}
+    ];
+     
+//    const sonuc = urunler.map(urun => urun.urunAdi); 
+    const sonuc = urunler.map(urun => urun.fiyat);
+
+//  Önce Filtreledik, daha sonra map metoduyla filtrelemeye göre tüm hepsini isimleriyle çağırdık, dizi olarak gelir.
+    const sonuc1 = urunler.filter(urun => urun.fiyat < 11000).map(urun => urun.urunAdi); 
+
+// Find Metodu, Fonksiyona göre bulduğu dizideki ilk true değeri bize getirir, 1 değer getirir.
+    const sonuc2 = urunler.find(urun => urun.fiyat < 13000);
+
+
+
+    console.log(sonuc);
+    console.log(sonuc1);
+    console.log(sonuc2);
+
+
+
+    </script>
+</body>
+</html>
