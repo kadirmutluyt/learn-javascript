@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// Eski yöntem, for döngüsü ile tek tek dizi indekslerini dolaşıyoruz.
+        
+    const mesaj= ["Benim", "adım", "Kadir", "Mutlu"];
+    let sonuc = "";
+    for( let i of mesaj) {
+        sonuc +=i + " "; 
+    }
+    console.log(sonuc);
+
+// Spread operatörü ile tek satırdı aynı işlemi yapabiliyoruz.
+
+    console.log(...mesaj);
+
+// Spread operatörü ile birden çok diziyi ve nesneyi kopyalayıp birleştirebiliriz, orjinal diziye/ nesneye bir şey olmaz.
+
+    dizi1 = [1,2,3,4,5,6];
+    dizi2 = [23,35,96,45];
+
+    dizi3 = [...dizi1, ...dizi2];
+
+    console.log(dizi3);
+
+// Referans ile de kopyalayabiliriz fakat bu sefer dizide veya nesnede bir değişiklik yaparsak referans olduğundan diğer dizi/nesne'de de değişiklik yapılmış olur
+
+    const sayilar1 = [4,9,5];
+    const sayilar2 = sayilar1; // referans kopyalama
+
+    console.log(sayilar1);
+    console.log(sayilar2);
+
+    sayilar1[0] = 1649; // 1. indeksi değiştirdim
+    sayilar2[1] = 656565; // yeni oluşturduğumuz dizinin 2. indeksi değiştirdim
+
+    console.log(sayilar1);
+    console.log(sayilar2);
+
+    const sayilar3 = [...sayilar1]; // spread operatörü ile value olarak kopyaladım 
+
+    sayilar1[1] = 0; // bu sefer sadece sayilar1 indeksinin değeri değişti
+
+    console.log(sayilar1);
+    console.log(sayilar3);
+
+    // spread operatörünü Nesne üzerinde kullandım, eğer aynı anahtardan iki nesnede de varsa, en son anahtarı değer olarak alır.
+    const user = {
+        username: "Kadir",
+        email: "mailimiCalma.com"
+    };
+
+    const address = {
+        city: "ankara",
+        username: "Mehmet"
+    };
+
+    console.log({...user, ...address});
+
+    //  Rest Parametreleri olarak ta kullanılabilir, argüman sayısının belli olmadığı fonksiyonlarda argüman yerine yazılır.
+    function topla (...sayilar){
+        let sonuc = 0;
+
+        for (let x of sayilar) {
+            sonuc += x;
+        }
+        return sonuc;
+    }
+
+    console.log(topla(2,5,6,6,6,6,6,4,2,5));
+    console.log(topla(7,6,4,2,9));
+
+    // ...adres diyerek birden fazla argüman alabildik
+     function bilgileriGoster (isim, soyad, ...adres){
+        console.log(isim, soyad, adres);
+    }
+
+    bilgileriGoster("Kadir", "Mutlu", "Ankara", "X İlçe", "Y mahalle");
+
+
+    </script>
+</body>
+</html>
