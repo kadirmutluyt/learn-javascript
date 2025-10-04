@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ogrenciler adında map oluşturduk, map([[]]) bu yöntemle de içine anahtar çift ekleyebiliriz
+        const ogrenciler = new Map([[4, "recep"]]); 
+
+        // Set ile anahtar ve değerleri map'e gönderdik. Farklı tiplerde anahtarları kabul edebiliyor.
+        ogrenciler.set(1, "ahmet efendi");
+        ogrenciler.set("1112254632", "ali turan");
+        ogrenciler.set(5, "edep kun");
+        ogrenciler.set(true, false);
+
+        console.log(ogrenciler);
+
+        // get metodu ile ogrenciler map'ine belli anahtarlar verip değere ulaştık.
+        console.log(ogrenciler.get(1));
+        console.log(ogrenciler.get(true));
+        console.log(ogrenciler.get("1112254632"));
+
+
+        // size metodu ile ogrenciler map'inde kaç anahtar değer çifti var onu gördük.
+        console.log(ogrenciler.size);
+
+        // delete ile indeksini vererek belli indeksi silebiliyoruz.
+        console.log(ogrenciler.delete(1));
+
+        console.log(ogrenciler);
+
+        // has metodu ile verdiğimiz value değeri anahtar karşılığı varmı diye bakar, varsa true yoksa false döner. 
+        console.log(ogrenciler.has("1112254632"));
+
+        // Keys ve values metodu döngüye özeldir. Burada keys ile tek tek anahtarları aldık. values ile tek tek değerleri aldık.
+        for (let x of ogrenciler.keys()){
+            console.log(x);
+        }
+
+        for (let x of ogrenciler.values()){
+            console.log(x);
+        }
+
+        // Eğer hem keyleri hemde value alacaksak entries metodunu kullanırız. İkisi beraber getirilir
+
+        for (let x of ogrenciler.entries()){
+            console.log(x);
+        }
+
+        // burada ise indeks ile uğraşmamak için hem de daha okunaklı olması adına key value olarak yazım şekli, modern yöntem bu kullanılır.
+        for ( let [key, value] of ogrenciler.entries()){
+            console.log(key,value);
+        }
+
+        
+
+
+
+    </script>
+
+</body>
+</html>

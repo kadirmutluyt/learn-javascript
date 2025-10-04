@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const sayilar = [1,2,3,4,5];
+
+        // Eski yöntem
+
+        const sayi1 = sayilar[0];
+        const sayi2 = sayilar[1];
+
+        // destructuring, dizilerdeki elemanları sırasıyla değişkenlerle atamak için kullanılır. [] Köşeli parantez kullanılır. fazladan virgül bırakarak o sırada ki indeksi atlayabiliriz. 
+
+        const [ilksayi, ikincisayi, ücüncüsayi, ,besincisayi] = sayilar;
+
+        console.log(ilksayi);
+        console.log(besincisayi);
+
+        // ...digersayilar, burada bir dizi olmuştur. Dizi olarak başka yerlerde kullanabiliriz.
+        const [birinci, ikinci, ücüncü, ...digersayilar] =sayilar
+        
+        console.log(digersayilar);
+        
+
+        // Object Destructuring
+
+        let urun = {
+            marka: "BMW",
+            model: "xxx",
+            fiyat: 1500000
+        }
+
+        // ürün objesinden marka, model, fiyat anahtarlarını al, bu isimlerle değişken oluştur dedik. Bu değişkenleri çağırınca da değerleri bize gelmiş oluyor.
+
+        let {marka, model, fiyat} = urun;
+
+        console.log(marka, model, fiyat);
+
+
+
+
+
+
+    </script>
+</body>
+</html>
