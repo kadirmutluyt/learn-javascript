@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+    // Getter  ve setter metotları, bir nesnenin özelliklerinin kontrol altına almamızı sağlar. Verilen veriyi kontrol eder, uygunsa nesnenin içine ekleriz, değilse eklemeyiz. get parametre almaz, set 1 tane parametre almak zorundadır, bu yüzden oraya value yazyoruz. 
+    
+    class KisiES6 {
+        constructor (ad, meslek, dogumyili){    
+            this.ad = ad;
+            this.meslek = meslek;
+            this.dogumyili = dogumyili;
+        }
+
+        yasHesapla(){
+            let tarih = new Date().getFullYear();
+            return tarih - this.dogumyili;
+        }
+
+        get ad (){
+            return this._ad;
+        }
+
+        set ad (value){
+            if (value.length < 3){
+                console.log("Karakter sayısı çok az");
+                return;
+            }
+            this._ad = value;
+        }
+
+        get dogumyili () {
+            return this._dogumyili;
+        }
+
+        set dogumyili (value){
+            if (value < 1900 || value > new Date().getFullYear()){
+                console.log("Tarih bilgisi hatalı");
+                return;
+            }
+            this._dogumyili = value;
+        }
+    }
+
+    let burak = new KisiES6 ("bk", "pompacı", 1999);
+    let turan = new KisiES6 ("turan", "öğretmen", 1979);
+
+    console.log(burak);
+    console.log(turan.yasHesapla());
+    
+    console.log(burak.ad);
+    console.log(burak.dogumyili);
+
+    let mert = new KisiES6 ("mert", "öğretmen", 1879);
+    console.log(mert);
+    console.log(mert.dogumyili);
+    
+
+    
+
+
+    </script>
+</body>
+</html>

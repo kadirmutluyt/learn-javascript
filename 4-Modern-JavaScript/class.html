@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+    // Class mantığı javascriptte diğer dillerden gelen insanlar yabancılık çekmesin diye getirilmiş bir olay. Tarayıcı class ile yazılan kodu en son kısımda constructor olarak dönüştürür, yani class sadece görüntüden ibaret kalır. Kodun okunabilirliği için önemli. 
+
+    // ES5 Constructor kullanımı
+    function KisiES5 (ad, meslek, dogumyili) {
+        this.ad = ad;
+        this.meslek = meslek;
+        this.dogumyili = dogumyili;
+
+        this.yasHesapla = function(){
+            let tarih = new Date().getFullYear();
+            return tarih - this.dogumyili;
+        }
+    }
+
+    let ahmet = new KisiES5("ahmet", "mermer ustası", 1977);
+    let mehmet = new KisiES5("recep", "döşemeci", 1969);
+
+    console.log(ahmet);
+    console.log(mehmet.yasHesapla());
+    
+    // ES6 class kullanımı
+    
+    class KisiES6 {
+        constructor (ad, meslek, dogumyili){
+            this.ad = ad;
+            this.meslek = meslek;
+            this.dogumyili = dogumyili;
+        }
+
+        // class içi constructor'da fonksiyon tanımlarken functuion yazmamıza gerek yok.
+        yasHesapla(){
+            let tarih = new Date().getFullYear();
+            return tarih - this.dogumyili;
+        }
+    }
+
+    let burak = new KisiES6 ("burak", "pompacı", 1999);
+    let turan = new KisiES6 ("turan", "öğretmen", 1979);
+
+    console.log(burak);
+    console.log(turan.yasHesapla());
+
+
+    </script>
+</body>
+</html>
