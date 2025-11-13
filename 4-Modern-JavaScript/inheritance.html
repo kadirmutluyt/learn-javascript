@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // Kalıtımdır, çocuğun anasından gen alma olayına benzer. Annesinin (parent) metotlarını falan kullanabilmesini sağlar.
+        
+    // Extends, alt sınıfın üst sınıftan kalıtım yapmasını sağlayan kelime.
+    // Super, alt sınıftayken üst sınıfın metotlarına veya constructor'a erişebilmesini sağlayan kelime
+
+    // Annede ki fonksiyonu vb. ezmek istersek yani onu kullanmak istemezsek aynı isimde çocuğada bir fonskiyon yazabiliriz
+
+    // parent
+    class Kisi {
+        constructor (ad, dogumYili){
+            console.log("kisi constructor");
+            this.ad = ad;
+            this.dogumYili = dogumYili;
+        }
+
+        yasHesapla(){
+            let tarih = new Date().getFullYear();
+            return tarih - this.dogumYili;
+        }
+
+        kendinitanit(){
+            console.log(`benim adım ${this.ad}`);
+        }
+    }
+
+    // child
+    class Ogrenci extends  Kisi {
+        constructor (ad, dogumYili, okulNumarasi){
+            super(ad, dogumYili); // Super diyerek üst sınıfın özelliklerini kullandık, o anda orada ki consolo yazdırma işlemi de çalıştı.
+            console.log("ogrenci constructor");
+            this.okulNumarasi = okulNumarasi;
+        }
+        derscalis(){
+            console.log(`${this.ad} ders çalışıyor`);
+        }
+
+        kendinitanit(){
+            console.log(`benim adım ${this.ad} ve okul numaram ${this.okulNumarasi}`);
+        }
+    }
+
+    let kisi = new Kisi("mehmet", 1990);
+    let ogrenci = new Ogrenci("salih", 2002, 123);
+
+    console.log(kisi.yasHesapla());
+    console.log(ogrenci.yasHesapla());
+    console.log(ogrenci.derscalis());
+
+    console.log(kisi.kendinitanit());
+    console.log(ogrenci.kendinitanit());
+
+    </script>
+</body>
+</html>
