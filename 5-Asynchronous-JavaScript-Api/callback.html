@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Önce başla daha sonra bitti yazar. callback zaten asenkron çalışması için var.
+
+        console.log("başla");
+
+        const login = (username, password, callback) => {
+            setTimeout(() =>
+                callback({kullaniciadi: username, sifre: password, email: "kadirmutluyt@gmail.com"})
+            , 3000);
+        };
+
+        const getPostByUsername = (username, callback) => {
+            setTimeout(() => {
+                callback(["post1", "post2", "post3"])
+            }, 3000);
+        };
+
+        const getPostDetails = (post, callback) => {
+            setTimeout(()=>{
+                callback("post details");
+            }, 2000);
+        }
+
+        login("kadir", 123456, user => {
+            console.log(user.kullaniciadi);
+            console.log(user.sifre);
+            console.log(user.email);
+
+            getPostByUsername (user.kullaniciadi, posts => {
+                console.log(posts);
+
+                getPostDetails (posts[0], (details) => {
+                    console.log(details);
+                })
+            });
+        });
+
+
+        // javascriptte asenkron programlamada 3 çeşit var. callback 3 çeşitten ilki. eski sistem. iç içe fonskiyonlar diye gidiyor. bu yüzden callback hell denmiş :d.
+
+        console.log("bitti");
+
+    </script>
+</body>
+</html>
